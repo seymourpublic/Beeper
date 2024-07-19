@@ -1,0 +1,219 @@
+Beeper API Description
+
+The Beeper API is a comprehensive set of microservices designed to handle various aspects of a messaging platform. This platform includes services for user management, roles, messaging, groups, notifications, logging, and monitoring. Each microservice is designed to perform specific functions, ensuring a modular and scalable architecture. Below is a detailed description of each service:
+1. User Service
+
+Description: Handles user registration, authentication, and profile management.
+
+Endpoints:
+
+    POST /api/users/register - Register a new user
+    POST /api/users/login - Log in a user
+    GET /api/users/profile - Get user profile (Protected)
+    PUT /api/users/profile - Update user profile (Protected)
+
+Technology Stack:
+
+    Node.js
+    Express
+    MongoDB
+    JWT for authentication
+    Swagger for API documentation
+
+2. Role Service
+
+Description: Manages roles and permissions within the platform.
+
+Endpoints:
+
+    POST /api/roles - Create a new role (Protected)
+    GET /api/roles - Get all roles (Protected)
+    DELETE /api/roles/:id - Delete a role (Protected)
+
+Technology Stack:
+
+    Node.js
+    Express
+    MongoDB
+    JWT for authentication
+    Swagger for API documentation
+
+3. Message Service
+
+Description: Handles the creation, sending, and retrieval of messages between users and groups.
+
+Endpoints:
+
+    POST /api/messages - Send a message (Protected)
+    GET /api/messages - Get all messages for the logged-in user (Protected)
+    GET /api/messages/group/:groupId - Get all messages for a group (Protected)
+
+Technology Stack:
+
+    Node.js
+    Express
+    MongoDB
+    JWT for authentication
+    Swagger for API documentation
+
+4. Group Service
+
+Description: Manages group creation, membership, and group-based messaging.
+
+Endpoints:
+
+    POST /api/groups - Create a new group (Protected)
+    GET /api/groups - Get all groups (Protected)
+    GET /api/groups/:id - Get a group by ID (Protected)
+    PUT /api/groups/:id/add-member - Add a member to a group (Protected)
+    PUT /api/groups/:id/remove-member - Remove a member from a group (Protected)
+
+Technology Stack:
+
+    Node.js
+    Express
+    MongoDB
+    JWT for authentication
+    Swagger for API documentation
+
+5. Notification Service
+
+Description: Manages real-time notifications using Socket.IO for real-time communication.
+
+Endpoints:
+
+    GET /api/notifications - Get all notifications for the logged-in user (Protected)
+    PUT /api/notifications/:id/read - Mark a notification as read (Protected)
+
+Technology Stack:
+
+    Node.js
+    Express
+    MongoDB
+    Socket.IO for real-time communication
+    JWT for authentication
+    Swagger for API documentation
+
+6. Logging Service
+
+Description: Logs various activities and errors for monitoring and debugging purposes.
+
+Endpoints:
+
+    POST /api/logs - Create a new log (Protected)
+    GET /api/logs - Get all logs (Protected)
+
+Technology Stack:
+
+    Node.js
+    Express
+    MongoDB
+    JWT for authentication
+    Swagger for API documentation
+
+7. Monitoring Service
+
+Description: Monitors the health and performance of the microservices using Prometheus.
+
+Endpoints:
+
+    POST /api/statuses - Create a new service status (Protected)
+    GET /api/statuses - Get all service statuses (Protected)
+    GET /api/metrics - Get Prometheus metrics
+
+Technology Stack:
+
+    Node.js
+    Express
+    MongoDB
+    Prometheus for monitoring
+    JWT for authentication
+    Swagger for API documentation
+
+API Documentation
+
+All services use Swagger for API documentation. You can access the Swagger UI for each service using the following URLs:
+
+    User Service: http://localhost:5000/api-docs
+    Role Service: http://localhost:5001/api-docs
+    Message Service: http://localhost:5002/api-docs
+    Group Service: http://localhost:5003/api-docs
+    Notification Service: http://localhost:5004/api-docs
+    Logging Service: http://localhost:5005/api-docs
+    Monitoring Service: http://localhost:5006/api-docs
+
+Authentication
+
+Each service uses JWT for authentication. Protected routes require a valid JWT token to be included in the Authorization header of the request.
+Getting Started
+
+To get started with the Beeper API, follow these steps:Clone the repository:
+
+sh
+
+git clone https://github.com/your-username/beeper-api.git
+cd beeper-api
+
+Install dependencies for each service:
+
+sh
+
+cd user-service
+npm install
+
+cd ../role-service
+npm install
+
+cd ../message-service
+npm install
+
+cd ../group-service
+npm install
+
+cd ../notification-service
+npm install
+
+cd ../logging-service
+npm install
+
+cd ../monitoring-service
+npm install
+
+Configure environment variables for each service by creating a .env file in the root of each service directory. Refer to the .env.example files for required environment variables.
+
+Start each service:
+
+sh
+
+    cd user-service
+    npm run dev
+
+    cd ../role-service
+    npm run dev
+
+    cd ../message-service
+    npm run dev
+
+    cd ../group-service
+    npm run dev
+
+    cd ../notification-service
+    npm run dev
+
+    cd ../logging-service
+    npm run dev
+
+    cd ../monitoring-service
+    npm run dev
+
+    Access the services using the respective URLs and Swagger UI documentation.
+
+Contributing
+
+If you wish to contribute to the Beeper API, please follow these steps:
+
+    Fork the repository.
+    Create your feature branch: git checkout -b feature/my-feature.
+    Commit your changes: git commit -m 'Add some feature'.
+    Push to the branch: git push origin feature/my-feature.
+    Open a pull request.
